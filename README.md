@@ -22,21 +22,38 @@ Clone the repository and change directory into the folder:
 git clone https://github.com/wagura-droid/Facial-Recognition-by-Infomatrix.git
 ```
 Install virtual environment:
-```
- sudo apt install python3.10-venv
+ Linux users:
  ```
-Create virtual environment
-```
-python3 -m venv <virtualenvname>
-```
+ sudo apt install python3.10-venv
+  ```
+ Windows users:
+ ```
+ pip install virtualenv
+ ```
+Create virtual environment:
+ Linux users:
+ ```
+ python3 -m venv <virtualenvname>
+ ```
+ Windows users:
+ ```
+ virtualenv <virtualenvname>
+ ```
 Activate virtual environment:
-```
-source <virtualenvname>/bin/activate
-```
+ Linux users:
+ ```
+ source <virtualenvname>/bin/activate
+ ```
+ Windows users:
+ ```
+ cd <virtualenvname>/Scripts
+ activate
+ cd ../..
+ ```
 Install Dependencies:
-```
-pip install -r requirements.txt
-```
+ ```
+ pip install -r requirements.txt
+ ```
 Run the program
 ```
 python3 GenderClassification.py
