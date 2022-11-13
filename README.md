@@ -27,9 +27,15 @@ Linux users:
 sudo apt install python3.10-venv
 ```
  Windows users:
+<<<<<<< HEAD
 ```
 pip3 install virtualenv
 ```
+=======
+ ```
+  virtualenv
+ ```
+>>>>>>> 119a6ac4ace907b47ba896a2e8e2895a0316d0dd
 Create virtual environment:
 Linux users:
 ```
@@ -51,9 +57,15 @@ activate
 cd ../..
 ```
 Install Dependencies:
+<<<<<<< HEAD
 ```
 pip3 install -r requirements.txt
 ```
+=======
+ ```
+  -r requirements.txt
+ ```
+>>>>>>> 119a6ac4ace907b47ba896a2e8e2895a0316d0dd
 Run the program
 ```
 python3 GenderClassification.py
