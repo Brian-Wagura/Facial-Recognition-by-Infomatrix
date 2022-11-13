@@ -28,7 +28,7 @@ Install virtual environment:
   ```
  Windows users:
  ```
- pip install virtualenv
+  virtualenv
  ```
 Create virtual environment:
  Linux users:
@@ -52,7 +52,7 @@ Activate virtual environment:
  ```
 Install Dependencies:
  ```
- pip install -r requirements.txt
+  -r requirements.txt
  ```
 Run the program
 ```
