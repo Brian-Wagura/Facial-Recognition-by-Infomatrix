@@ -14,7 +14,7 @@ data_path   = 'datasets'
 # Categories in the folder
 categories  = os.listdir(data_path)
 labels      = [ i for i in range(len(categories))]
-# zip function helps to create the dictionary
+# zip function helps to create the dictionary file
 label_dict  = dict(zip(categories,labels))
 
 # print(label_dict) # {'female': 0, 'male': 1}
@@ -25,7 +25,7 @@ img_size = 32
 data     = []
 target   = []
 
-# Detects face
+# facial detection
 cascade  = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 
 
@@ -56,7 +56,7 @@ for category in categories:
             print('Exception:',e)
 
 warnings.filterwarnings('ignore')
-# Convert into the range 0 and 1
+# Convert into into the range, 0 and 1
 data  = np.array(data)/255.0
 data  = np.reshape(data, (data.shape[0],img_size,img_size,1))
 target= np.array(target)
@@ -126,7 +126,7 @@ while True:
         normalized = resized/255.0
         reshaped   = np.reshape(normalized, (1,32,32,1))
 
-        # Predict the result
+        # Predicting the results 
         result     = model.predict(reshaped)
         # Helps to give output
         label      = np.argmax(result,axis=1)[0]
