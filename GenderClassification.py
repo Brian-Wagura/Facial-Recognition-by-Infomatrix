@@ -63,14 +63,14 @@ target= np.array(target)
 
 new_target  = np_utils.to_categorical(target)
 
-# Saves into training folder
+# Saving to the follder; training
 np.save('./training/data', data)
 np.save('./training/target', new_target)
 
 data   = np.load('./training/data.npy')
 target = np.load('./training/target.npy')
 
-# Create the Model
+# Creating Model
 noOfFilters    = 64
 sizeOfFilter1  = (3,3)
 sizeOfFilter2  = (3,3)
@@ -91,10 +91,10 @@ model.add(Dropout(0.5))
 model.add(Flatten()) #Linear Format
 model.add(Dense(noOfNode,activation='relu'))
 model.add(Dropout(0.5))
-# Number of Classes(male,female) softmax-helps in binary classification
+# (Female and male) classes number softmax-helps in binary classification
 model.add(Dense(2, activation='softmax')) 
 
-#Compile the model
+#Compiling the general model 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
 # Split data into train and test data
