@@ -14,12 +14,12 @@ data_path   = 'datasets'
 # Categories in the folder
 categories  = os.listdir(data_path)
 labels      = [ i for i in range(len(categories))]
-# zip function helps to create the dictionary file
+# Dictionary files are created by the zip folder
 label_dict  = dict(zip(categories,labels))
 
-# print(label_dict) # {'female': 0, 'male': 1}
-# print(categories) # ['female', 'male']
-# print(labels)     # [0, 1]
+# print(label_dict) # to: {'female': 0, 'male': 1}
+# print(categories) # to: ['female', 'male']
+# print(labels)     # to: [0, 1]
 
 img_size = 32
 data     = []
@@ -32,7 +32,7 @@ cascade  = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalfac
 for category in categories:
     folder_path   = os.path.join(data_path,category)
     img_names     = os.listdir(folder_path)
-
+#picking from the categories
     for img_name in img_names:
         img_path    = os.path.join(folder_path,img_name)
         img         = cv2.imread(img_path)
@@ -56,14 +56,14 @@ for category in categories:
             print('Exception:',e)
 
 warnings.filterwarnings('ignore')
-# Convert into into the range, 0 and 1
+# Convert into the range, 0 and 1
 data  = np.array(data)/255.0
 data  = np.reshape(data, (data.shape[0],img_size,img_size,1))
 target= np.array(target)
 
 new_target  = np_utils.to_categorical(target)
 
-# Saving to the follder; training
+# Saving to the folder; training
 np.save('./training/data', data)
 np.save('./training/target', new_target)
 
@@ -88,7 +88,7 @@ model.add((Conv2D(64, sizeOfFilter2, activation='relu')))
 model.add(MaxPooling2D(pool_size=sizeOfPool))
 model.add(Dropout(0.5))
 
-model.add(Flatten()) #Linear Format
+model.add(Flatten()) #For the Linear Format
 model.add(Dense(noOfNode,activation='relu'))
 model.add(Dropout(0.5))
 # (Female and male) classes number softmax-helps in binary classification
@@ -97,16 +97,16 @@ model.add(Dense(2, activation='softmax'))
 #Compiling the general model 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 
-# Split data into train and test data
+# Seperate data into train and test data
 train_data, test_data, train_target, test_target = train_test_split(data,target,test_size=0.1)
 
-# Initialize checkpoint(saving each model  in training folder)
+# Checkpoint initialization(saving each model  in training folder)
 checkpoint  = ModelCheckpoint('./training/model-{epoch:03d}.model', monitor='val_loss', verbose=0, save_best_only=True, mode='auto')
 history     = model.fit(train_data, train_target, epochs=30, callbacks=[checkpoint], validation_split=0.2)
 
-# Load a model from the training folder
+# Loading a model from the training folder
 model       = load_model('./training/model-030.model')
-# Detects face
+# Face detect
 face_clsfr  = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 # opencv video capture
 cap         = cv2.VideoCapture(0)
