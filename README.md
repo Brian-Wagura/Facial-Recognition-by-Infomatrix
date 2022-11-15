@@ -12,9 +12,9 @@ respective subdirectory.
 ### About the project
 This project classifies faces according to their gender; either Female or Male.
 Convolutional Neural Networks are used to build the model.
-It uses opencv-python to video capture and the gender is predicted by the model. opencvallows users to perform image processing and vision tasks 
+It uses opencv-python to video capture and the gender is predicted by the model. Opencv allows users to perform image processing and vision tasks.
 A squarebox is displayed predicting if either the person is female or male.
-By showing the camera a picture, the program will also predict if either the picture displayed is male or female
+By showing the camera a picture, the program will also predict if either the picture displayed is male or female.
 
 # How you test
 Clone the repository and change directory into the folder:
@@ -22,6 +22,12 @@ Clone the repository and change directory into the folder:
 git clone https://github.com/wagura-droid/Facial-Recognition-by-Infomatrix.git
 cd Facial-Recognition-by-Infomatrix
 ```
+
+Create an empty directory called training. This is where the models generated and saved will be stored.
+```
+mkdir training
+```
+
 Install virtual environment:
 Linux users:
 ```
