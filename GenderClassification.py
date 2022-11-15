@@ -105,7 +105,7 @@ checkpoint  = ModelCheckpoint('./training/model-{epoch:03d}.model', monitor='val
 history     = model.fit(train_data, train_target, epochs=30, callbacks=[checkpoint], validation_split=0.2)
 
 # Loading a model from the training folder
-model       = load_model('./training/model-030.model')
+model       = load_model('./training/model-010.model')
 # Face detect
 face_clsfr  = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 # opencv video capture
