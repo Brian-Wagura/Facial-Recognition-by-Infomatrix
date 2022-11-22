@@ -77,8 +77,10 @@ sizeOfFilter2  = (3,3)
 sizeOfPool     = (2,2)
 noOfNode       = 64
 
+# Defining the model
 model = Sequential()
 
+#Adding Layers
 model.add((Conv2D(32, sizeOfFilter1, input_shape=data.shape[1:], activation='relu')))
 model.add((Conv2D(32, sizeOfFilter1, activation='relu'))) 
 model.add(MaxPooling2D(pool_size=sizeOfPool))
